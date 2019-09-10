@@ -5,20 +5,34 @@ class Genero(models.Model):
     nombre = models.CharField(max_length=200, help_text='Género o técnica empleada...')
 
     def __str__(self):
-        return self.name
+        return self.nombre
 
 
-class trabajos(models.Model):
+class Pictures(models.Model):
+    titulo = models.CharField(max_length=200, null=True, blank=True)
+    pictures = models.FileField(upload_to='pictures', blank=True)
+
+    class Meta:
+        verbose_name_plural = 'Pictures'
+
+    def __str__(self):
+        return self.titulo
+
+
+class Trabajos(models.Model):
 
     titulo = models.CharField(max_length=200)
     autor = models.ForeignKey('Autor', on_delete=models.SET_NULL, null=True)
-    year = models.DecimalField('Año', max_digits= 4, decimal_places=4)
+    year = models.DecimalField('Año', max_digits= 4, decimal_places=0)
     genero = models.ManyToManyField(Genero, help_text='Género o técnica empleada...')
-    picture = models.FileField(upload_to='pictures', blank=True)
+    pictures = models.ManyToManyField(Pictures, help_text='Cargar y seleccionar las imagenes...')
     fecha_publicado = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name_plural = 'Trabajos'
+
     def __str__(self):
-        return self.title
+        return self.titulo
 
 
 class Autor(models.Model):
