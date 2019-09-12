@@ -11,10 +11,12 @@ class Genero(models.Model):
 class Pictures(models.Model):
     titulo = models.CharField(max_length=200, null=True, blank=True)
     pictures = models.FileField(upload_to='pictures', blank=True)
+    fecha_agregado = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     class Meta:
         verbose_name_plural = 'Pictures'
-
+        ordering = ['-fecha_agregado']
+        
     def __str__(self):
         return self.titulo
 
@@ -30,6 +32,7 @@ class Trabajos(models.Model):
 
     class Meta:
         verbose_name_plural = 'Trabajos'
+        ordering = ['-fecha_publicado']
 
     def __str__(self):
         return self.titulo
