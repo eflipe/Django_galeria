@@ -1,0 +1,24 @@
+{% extends 'catalogo/base.html' %}
+
+{% block titulo %}
+  <h2>Título: {{pictures_detalle.titulo}}</h2>
+  <h5>Año: {% for pic in pictures_detalle.trabajos_set.all %} {{pic.year}} {% endfor %} </h5>
+  <br>
+{% endblock %}
+{% block content %}
+{% endblock %}
+  <br>
+{% block galeria %}
+
+
+
+
+  <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+
+      <img  src="/media/{{pictures_detalle.pictures}}" alt="{pictures_detalle.titulo}}">
+
+  </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'catalogo/base.html' %}
+
+{% block titulo %}
+  <h1>Info del autor:</h1>
+  <br>
+{% endblock %}
+{% block content %}
+<ul>
+  <h3>Nombre: {{ autor_detalle.autor }}</h3>
+
+  <h3>Bio: {{ autor_detalle.autor.bio }}</h3>
+
+  <h3>Website: <a href="{{autor_detalle.autor.website}}">{{ autor_detalle.autor.website }}</a></h3>
+  <h3>Géneros: {% for genero in autor_detalle.genero.all %} {{ genero }}{% if not forloop.last %}, {% endif %}{% endfor %}</h3>
+</ul>
+{% endblock %}
+  <br>
+{% block galeria %}
+
+
+
+  {% for pic in autor_detalle.pictures.all %}
+  <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+    <a href="{% url 'pictures-detalle' pic.id %}" class="fancybox" rel="ligthbox">
+      <img  src="/media/{{pic.pictures}}" class="zoom img-fluid "  alt="{{pic.titulo}}">
+    </a>
+  </div>
+  {% endfor %}
+
+
+{% endblock %}

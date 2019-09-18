@@ -12,11 +12,12 @@ class Pictures(models.Model):
     titulo = models.CharField(max_length=200, null=True, blank=True)
     pictures = models.FileField(upload_to='pictures', blank=True)
     fecha_agregado = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    autor = models.ForeignKey('Autor', on_delete=models.SET_NULL, null=True)
 
     class Meta:
         verbose_name_plural = 'Pictures'
         ordering = ['-fecha_agregado']
-        
+
     def __str__(self):
         return self.titulo
 
