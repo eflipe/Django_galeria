@@ -1,13 +1,13 @@
 from django.contrib import admin
-from catalogo.models import Genero, Trabajos, Autor, Pictures
+from catalogo.models import Genero, Autores, Pictures
 
-class TrabajosAdmin(admin.ModelAdmin):
-    fields = ['autor', 'year', 'titulo', 'genero', 'pictures']
-    list_display = ['titulo', 'autor', 'year']
-    list_filter = ('autor', 'year')
+class AutoresAdmin(admin.ModelAdmin):
+    fields = ['nombre', 'apellido', 'website', 'genero', 'bio']
+    list_display = ['apellido', 'nombre', 'website']
+    list_filter = ('apellido',)
 
 
 admin.site.register(Genero)
-admin.site.register(Trabajos, TrabajosAdmin)
-admin.site.register(Autor)
+admin.site.register(Autores, AutoresAdmin)
+# admin.site.register(Autor)
 admin.site.register(Pictures)

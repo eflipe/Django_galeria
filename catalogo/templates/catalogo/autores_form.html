@@ -1,0 +1,17 @@
+{% extends "catalogo/base.html" %}
+
+{% block content %}
+  <form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+
+    </table>
+    <br>
+    <a href="{% url 'genero_create' %}">Agregar géneros</a>
+    <br>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+
+{% endblock %}

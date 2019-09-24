@@ -1,0 +1,18 @@
+{% extends "catalogo/base.html" %}
+
+{% block content %}
+  <form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <li><a href="{% url 'autor_create' %}">Agregar autores</a></li>
+    <li><a href="{% url 'genero_create' %}">Agregar géneros</a></li>
+    <li><a href="{% url 'pictures_create' %}">Agregar imágenes</a></li>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+  <br>
+
+
+{% endblock %}

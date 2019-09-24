@@ -1,24 +1,24 @@
 {% extends "catalogo/base.html" %}
 
 {% block titulo %}
-  <h2 class="navbar">Todos los autores:</h2>
+
   <br>
 {% endblock %}
 {% block content %}
 {% if trabajos %}
-  <ul>
+  <ul id="artistas">
     {% for info in trabajos %}
-      <h3>
+
       <li>
         <a href="{% url 'autores-detalle' info.id %}">
-        {{ info.autor.apellido }}, {{info.autor.nombre}}
+        {{ info.apellido }}, {{info.nombre}}
         </a>
 
       </li>
-      </h3>
+    
     {% endfor %}
   </ul>
   {% else %}
-    <p>There are no books in the library.</p>
+    <p>No hay artistas.</p>
   {% endif %}
 {% endblock %}

@@ -6,6 +6,52 @@ body {
   font-size:16px;
 }
 
+#nav {
+
+    position: relative;
+    left: 0px;
+    height: 60px;
+    width: 100%;
+    text-align: center;
+}
+#nav ul {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+#nav ul li {
+    margin: 0;
+    padding: 0;
+    float:left;
+}
+#nav ul li a {
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    color:#989898;
+    text-align: center;
+}
+#nav ul li a:hover {
+  background-color: #555;
+  color: white;
+}
+
+#artistas {
+  display: table;
+  margin:0 auto;
+  list-style-type: none;
+  
+}
+
+
+#artistas li a {
+  color:#989898;
+  font-size: 30px;
+}
+
+
+
+
 #demo {
   height:100%;
   position:relative;
