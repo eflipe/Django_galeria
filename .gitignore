@@ -5,5 +5,3 @@ vil_env
 db.sqlite3
 *.key
 thumbs.db
-*.bak
-
