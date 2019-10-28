@@ -1,10 +1,7 @@
-from django.shortcuts import render
-from django.http import Http404
 from django.shortcuts import get_object_or_404
-from django.template import RequestContext
 from catalogo.models import Autores, Pictures, Genero
 from django.views import generic
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 
 
@@ -14,20 +11,6 @@ class PicturesListView(generic.ListView):
     queryset = Pictures.objects.all().order_by('-fecha_agregado')
     template_name = 'catalogo/index.html'
     paginate_by = 8
-
-
-
-# def index(request):
-#     trabajos = Autores.objects.all()
-#     pictures = Pictures.objects.all().order_by('-fecha_agregado')
-#     context = {
-#         'trabajos': trabajos,
-#         'pictures': pictures
-#     }
-#
-#     template = 'catalogo/index.html'
-#
-#     return render(request, template, context=context)
 
 
 class AutoresListView(generic.ListView):
@@ -48,28 +31,12 @@ class PicturesDetailView(generic.DetailView):
     template_name = 'catalogo/pictures_detalle.html'
 
 
-class TrabajosCreate(CreateView):
-    model = Autores
-    fields = '__all__'
-    success_url = reverse_lazy('index')
-
-
-class TrabajosUpdate(UpdateView):
-    model = Autores
-    fields = '__all__'
-
-
-class TrabajosDelete(DeleteView):
-    model = Autores
-    success_url = reverse_lazy('autores')
-
-
 class PicturesCreate(CreateView):
     model = Pictures
     fields = '__all__'
 
-    def get_initial(self):
-        return {'autor': self.object.autor.id}
+    # def get_initial(self):
+    #     return {'autor': self.object.autor.id}
 
     def get_initial(self):
         autor = get_object_or_404(Pictures, pk=self.kwargs.get('pk'))
@@ -79,7 +46,6 @@ class PicturesCreate(CreateView):
 
     def get_success_url(self):
         return reverse_lazy('autores-detalle', kwargs={'pk': self.kwargs['pk']})
-
 
 
 class AutorCreate(CreateView):

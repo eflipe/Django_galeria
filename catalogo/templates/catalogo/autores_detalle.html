@@ -1,7 +1,7 @@
 {% extends 'catalogo/base.html' %}
 
 {% block titulo %}
-  <h1>Info del autor:</h1>
+
   <br>
 {% endblock %}
 {% block content %}
@@ -10,7 +10,7 @@
 
   <h3>Bio: {{ autor_detalle.bio }}</h3>
 
-  <h3>Website: <a href="{{autor_detalle.website}}">{{ autor_detalle.website }}</a></h3>
+  <h3>Website: <a target="_blank" rel="noopener noreferrer" href="{{autor_detalle.website}}">{{ autor_detalle.website }}</a></h3>
   <h3>Géneros: {% for genero in autor_detalle.genero.all %} {{ genero }}{% if not forloop.last %}, {% endif %}{% endfor %}</h3>
   <br>
   <h3><a href="{% url 'pictures_create' autor_detalle.id %}">Agregar imágenes</a></h3>
