@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'jck9@nzm#n&u+uj=19+5c)1)8&8fcg
 # DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['https://damp-garden-91286.herokuapp.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['damp-garden-91286.herokuapp.com/', '127.0.0.1']
 
 
 # Application definition
